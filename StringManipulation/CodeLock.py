@@ -42,6 +42,7 @@ while CodeCheck(finalCode) == 0:
 			userCode = userCode + digit
 			print("Reached %s.", userCode) # Debug
 	finalCode = int(userCode)
+	userCode = ""
 
 
 
