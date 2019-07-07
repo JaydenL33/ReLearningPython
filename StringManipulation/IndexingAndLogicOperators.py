@@ -22,9 +22,12 @@ def Indexer(point, string):
 #############################################################################
 # Main Call. 
 #############################################################################
-
+a = True
 string = input("Enter a string: ")
 point = int(input("Enter a point for the string: "))
+
+if a or a == True:
+	print("hello")
 
 while "bob" not in string.lower():
 	Indexer(point, string)
