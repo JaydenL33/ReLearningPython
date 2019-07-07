@@ -3,6 +3,7 @@
 # Date: 7/07/19
 # Purpose: This is a code lock checker. It checks to see if the code lock is
 # right one. 
+# URL: https://realpython.com/python-strings/#modifying-strings
 #############################################################################
 
 #############################################################################
