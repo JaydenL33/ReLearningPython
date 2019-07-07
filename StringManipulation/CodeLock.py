@@ -17,10 +17,10 @@
 def CodeCheck(CODE):
 	if CODE == 2153:
 		print("You got the Code!")
-		return True
+		return 1
 	else:
 		print("You got the code wrong!")
-		return False
+		return 0
 
 
 #############################################################################
@@ -29,11 +29,9 @@ def CodeCheck(CODE):
 userCode = ""
 finalCode = 0 
 
-print("The Code will loop if you got the code wrong.")
-while CodeCheck(finalCode) == False: 
-
+while CodeCheck(finalCode) == 0: 
 	while len(userCode) != 4:
-		print(str(len(userCode)))
+		print(str(len(userCode))) # Debug
 		digit = input("Enter one Digit: ")
 # Conditions!
 		if len(digit) > 1:
@@ -41,10 +39,8 @@ while CodeCheck(finalCode) == False:
 		if digit.isalpha():
 			print("Only numbers.")
 		else:
-			print("Reached %s.", userCode)
 			userCode = userCode + digit
-			
-
+			print("Reached %s.", userCode) # Debug
 	finalCode = int(userCode)
 
 
