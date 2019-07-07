@@ -1,7 +1,7 @@
 #############################################################################
 # Author: Jayden Lee (Jayden.Lee@student.uts.edu.au)
 # Date: 7/07/19
-# Purpose: To find whether a phone number is an Australian PhoneNumber
+# Purpose: To find whether a phone number is an Australian Phone-Number
 #############################################################################
 
 #############################################################################
@@ -9,9 +9,9 @@
 #############################################################################
 
 #############################################################################
-# Input: input
-# This function DOES
-# Output: input
+# Input: phoneNumber String
+# This function checks if the phoneNumber is an Australian Phone Numbr
+# Output: True or False
 #############################################################################
 
 #0412 235 235
