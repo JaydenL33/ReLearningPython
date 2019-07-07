@@ -6,7 +6,7 @@
 #############################################################################
 
 #############################################################################
-# Function Defining
+# 							Function Defining
 #############################################################################
 
 #############################################################################
@@ -24,14 +24,14 @@ def CodeCheck(CODE):
 
 
 #############################################################################
-# Main Code. 
+# 								Main Code. 
 #############################################################################
 userCode = ""
 finalCode = 0 
 
 while CodeCheck(finalCode) == 0: 
 	while len(userCode) != 4:
-		print(str(len(userCode))) # Debug
+		
 		digit = input("Enter one Digit: ")
 # Conditions!
 		if len(digit) > 1:
@@ -40,7 +40,8 @@ while CodeCheck(finalCode) == 0:
 			print("Only numbers.")
 		else:
 			userCode = userCode + digit
-			print("Reached %s.", userCode) # Debug
+			
+
 	finalCode = int(userCode)
 	userCode = ""
 
