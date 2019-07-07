@@ -1,7 +1,7 @@
 ###############################################################################
 # Author: Jayden Lee
-# Date: 29/06/19
-# Purpose: This is a simple script for testing string manipluation.  
+# Date: 07/07/19
+# Purpose: Print function string manipluation.  
 
 ###############################################################################
 
