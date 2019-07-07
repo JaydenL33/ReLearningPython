@@ -26,12 +26,14 @@ a = True
 string = input("Enter a string: ")
 point = int(input("Enter a point for the string: "))
 
-if a or a == True:
-	print("hello")
 
-while "bob" not in string.lower():
+
+while "bob" not in string.lower() and string.isalpha():
 	Indexer(point, string)
 	string = input("Enter a string: ")
 	point = int(input("Enter a point for the string: "))
 
 print("We found bob!")
+
+if a or a == True:
+	print("TEST DEBUG")
