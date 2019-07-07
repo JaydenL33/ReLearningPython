@@ -14,22 +14,26 @@
 # This function checks if the code lock is correct. 
 #############################################################################
 
-def CodeCheck(CODE):
-	if CODE == 2153:
+def CodeCheck(CODE, FIRSTRUN):
+	if CODE == 2153 and FIRSTRUN == False:
 		print("You got the Code!")
-		return 1
+		return True
+	elif FIRSTRUN == True:
+		return False
 	else:
 		print("You got the code wrong!")
-		return 0
+		return False
 
 
 #############################################################################
 # 								Main Code. 
 #############################################################################
 userCode = ""
-finalCode = 0 
+finalCode = 0
+check = True
 
-while CodeCheck(finalCode) == 0: 
+while CodeCheck(finalCode, check) == False:
+	check = False
 	while len(userCode) != 4:
 		
 		digit = input("Enter one Digit: ")
