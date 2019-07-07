@@ -14,18 +14,25 @@
 # Output: input
 #############################################################################
 
-
+#0412 235 235
 
 def isAussieNumber(phoneNumber):
-	for i in range(0,5):
-		print(phoneNumber[i])
-		if phoneNumber[i].isalpha():
+	RemovedphoneNumber = phoneNumber.replace(' ', '')
+	if len(RemovedphoneNumber) != 10:
+		print("Length needs to be 12.")
+		return False
+	for i in range(0,4):
+		# print(phoneNumber[i]) #DEBUG
+		if RemovedphoneNumber[i].isalpha():
+			print("Phonenumber contains letters. ")
 			return False
-	for i in range(6,10):
-		if phoneNumber[i].isalpha():
+	for i in range(5,7):
+		if RemovedphoneNumber[i].isalpha():
+			print("Phone number contains letters. ")
 			return False
-	for i in range(9,12):
-		if phoneNumber[i].isalpha():
+	for i in range(7,10):
+		if RemovedphoneNumber[i].isalpha():
+			print("Phone number contains letters. ")
 			return False
 	return True
 
@@ -36,9 +43,9 @@ def isAussieNumber(phoneNumber):
 
 print("The number should follow the following format: 04xx xxx xxx")
 
-phoneNumber = input("Please input a Australian Phone Number!.")
+phoneNumber = input("Please input a Australian Phone Number: ")
 
-while phoneNumber not "\n":
+while phoneNumber != "":
 	if isAussieNumber(phoneNumber):
 		print(phoneNumber, "is valid.")
-	phoneNumber = input("Please input a Australian Phone Number!.")
+	phoneNumber = input("Please input a Australian Phone Number: ")
