@@ -1,7 +1,7 @@
 #############################################################################
 # Author: Jayden Lee (Jayden.Lee@student.uts.edu.au)
-# Date: 09/07/19
-# Purpose: To Understand How to use Regex.
+# Date: 9/07/19
+# Purpose: Using the | or pipe char in re
 #############################################################################
 
 #############################################################################
@@ -14,26 +14,24 @@ import re
 # 							Function and Class Def.
 #############################################################################
 
+class RegexQuery: 
+    def __init__(self):
+    	self.x = 10
+    	self.str = "HELLO!"
+
 #############################################################################
-# Input: null
-# This function changes the re compile code to find patterns. 
-# Output: null
+# Input: input
+# This function DOES
+# Output: input
 #############################################################################
 
+MyName = re.compile(r'Legend|Hero|Jayden(Lee|L|James Lee| Lee)| Jayden')
+Query = MyName.findall("Jayden Lee is a nerd, ngl. That Jayden")
 
+
+
+print(Query)
 
 #############################################################################
 # 								Main Code. 
 #############################################################################
-
-
-# Adding brackets will just introduce groups.
-
-query = phoneNumRegex.search("My Number is 0458 770 196")
-
-print("Found number is " + query.group(0))
-print("All together is " + query.group(0))
-print("1st is " + query.group(1))
-
-first,second,third = query.groups(0)
-print(first, second, third)

@@ -1,12 +1,12 @@
 #############################################################################
 # Author: Jayden Lee (Jayden.Lee@student.uts.edu.au)
-# Date: 09/07/19
-# Purpose: To Understand How to use Regex.
+# Date: 9/07/19
+# Purpose: Redacting Classified information from NSA Documents.
 #############################################################################
 
 #############################################################################
 
-import re
+import re as regex
 
 #############################################################################
 
@@ -15,25 +15,15 @@ import re
 #############################################################################
 
 #############################################################################
-# Input: null
-# This function changes the re compile code to find patterns. 
-# Output: null
+# Input: Un-redacted text
+# This function redacts the text to make sure that it is safe to been shown 
+# to the public. 
+# Output: cleaned information.
 #############################################################################
 
-
+def classifiedCleaner(beforeRedacted):
+	classifiedText = regex.compile(r'Agent \w+', )
 
 #############################################################################
 # 								Main Code. 
 #############################################################################
-
-
-# Adding brackets will just introduce groups.
-
-query = phoneNumRegex.search("My Number is 0458 770 196")
-
-print("Found number is " + query.group(0))
-print("All together is " + query.group(0))
-print("1st is " + query.group(1))
-
-first,second,third = query.groups(0)
-print(first, second, third)

@@ -14,7 +14,7 @@ import somecode
 # 							Function and Class Def.
 #############################################################################
 
-class RegexQuery: 
+class someClass: 
     def __init__(self):
     	self.x = 10
     	self.str = "HELLO!"
