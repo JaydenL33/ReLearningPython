@@ -22,7 +22,13 @@ import re as regex
 #############################################################################
 
 def classifiedCleaner(beforeRedacted):
-	classifiedText = regex.compile(r'Agent \w+', )
+	classifiedRegex = regex.compile(r'Agent \w+', )
+
+	classfied = classifiedRegex.match("")
+	if classfied:
+    	print('Match found: ', m.group())
+	else:
+    	return "No Classifed Information"
 
 #############################################################################
 # 								Main Code. 
