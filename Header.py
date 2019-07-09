@@ -14,6 +14,11 @@ import somecode
 # 							Function and Class Def.
 #############################################################################
 
+class RegexQuery: 
+    def __init__(self):
+    	self.x = 10
+    	self.str = "HELLO!"
+
 #############################################################################
 # Input: input
 # This function DOES
@@ -21,7 +26,8 @@ import somecode
 #############################################################################
 
 def aFunFuction(input):
-	return input
+	extra = input + 1
+	return input, extra
 
 #############################################################################
 # 								Main Code. 

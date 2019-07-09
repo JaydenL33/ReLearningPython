@@ -33,7 +33,11 @@ def Guesser(minRange, maxRange, Debug):
 		print("Correct! ")
 		return 1
 
-
+def fun(): 
+    d = dict();  
+    d['str'] = "GeeksforGeeks"
+    d['x']   = 20
+    return d 
 
 while Correct != 1:
 	Correct = Guesser(minRange, maxRange, 0)
