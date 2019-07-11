@@ -63,17 +63,5 @@ awdhawd98hawd8 hawd8 ahwd8awh d8wad
 bad number man.""" # DOESNT WORK
 
 
-message = """1 Hour @ Lighthouse $50 | Helping Patrick Setup new Machine and migration of old data. Kerio Setup
-
-2 Hours @ Lighthouse $100 | Taking the old machine, setup of the new Lenovo All in One
-
-2 Hour @ Lighthouse $100 | Data Recovery and Backup for the Old Machine
-
-1.5 Hours (Only change one hour because of miscommunication) @ totemo $50 | Consultation with Martin about the NAS, and the external drives bought. Fixed and created new backups and removed excess data off the archive share. 
-
-Total: $300
-
- 
- """ #WORKS
 
 insideMessage(message)
