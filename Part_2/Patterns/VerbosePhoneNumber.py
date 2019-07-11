@@ -3,7 +3,7 @@
 # Date: 11/07/19
 # Purpose: To find whether a phone number is an Australian Phone-Number
 # but we are using the verbose mode and the different flag options inside of
-# re. 
+# re, instead of using conditions. 
 #############################################################################
 
 #############################################################################
@@ -16,21 +16,35 @@ import re as regex
 # 							Function and Class Def.
 #############################################################################
 
-class someClass: 
-    def __init__(self):
-    	self.x = 10
-    	self.str = "HELLO!"
-
 #############################################################################
-# Input: input
-# This function DOES
-# Output: input
+# Input: rawText
+# This function takes in raw text and extracts phone numbers. 
+# Output: the found numbers. 
 #############################################################################
 
-def aFunFuction(input):
-	extra = input + 1
-	return input, extra
+def isAussieNumber(rawText):
+
+	AUphoneRegex = regex.compile(r"""(
+	[+]61\s)+
+	(\s|-|\.)*
+	(\d{3})+
+	(\s|-|\.|)*
+	(\d{3})+
+	(\s|-|\.)*
+	(\d{3})+
+
+	""", regex.VERBOSE)
+
+	foundNumbers = AUphoneRegex.findall(rawText)
+
+	return foundNumbers
+
 
 #############################################################################
 # 								Main Code. 
 #############################################################################
+
+rawText = "+61 424 121 121, +61248248438 0423 342 234"
+
+AussieNumbers = isAussieNumber(rawText)
+print(AussieNumbers)
