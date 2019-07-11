@@ -1,12 +1,14 @@
 #############################################################################
 # Author: Jayden Lee (Jayden.Lee@student.uts.edu.au)
 # Date: 9/07/19
-# Purpose: Redacting Classified information from NSA Documents.
+# Purpose: Redacting Classified information from NSA Documents.]
+# Source: https://docs.python.org/3/howto/regex.html
 #############################################################################
 
 #############################################################################
 
 import re as regex
+import time
 
 #############################################################################
 
@@ -22,14 +24,31 @@ import re as regex
 #############################################################################
 
 def classifiedCleaner(beforeRedacted):
-	classifiedRegex = regex.compile(r'Agent \w+', )
+	classifiedRegex = regex.compile(r'Agent (\w)\w*', regex.IGNORECASE)
 
-	classfied = classifiedRegex.match("")
-	if classfied:
-    	print('Match found: ', m.group())
+	classified = classifiedRegex.match(beforeRedacted)
+	
+	if classified:
+		x = 0
+		print("Match found: ")
+		while x !=3:
+			print("REDACTING...")
+			time.sleep(0.2)
+			x += 1
+		redacted = classifiedRegex.sub(r'Agent \1****', beforeRedacted)
+		return redacted
+		print("REDACTED.")
+
 	else:
-    	return "No Classifed Information"
+		return "No Classifed Information"
 
 #############################################################################
 # 								Main Code. 
 #############################################################################
+
+Uncleaned = """Agent Wells killed a lot of men. agent Jacob spoke to her
+and was like damn son, why'd you do that."""
+
+Cleaned = classifiedCleaner(Uncleaned)
+
+print(Cleaned)
