@@ -25,11 +25,12 @@ def myFileStructure():
 	CWD = "/mnt/c/Coding/Github/ReLearningPython/Part_2/ReadWrite"
 	getcwd = os.getcwd()
 	print("The Path is " + CWD+"\n"+ "The CWD is " + getcwd)
-	print(os.listdir(CWD))
+	print(os.listdir(getcwd))
+	print(os.path.getsize(getcwd))
 	
 
 	
-	return CWD
+	return getcwd
 
 	
 
