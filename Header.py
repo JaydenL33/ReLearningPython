@@ -13,11 +13,13 @@ import somecode
 #############################################################################
 # 							Function and Class Def.
 #############################################################################
-
-class someClass: 
+class otherClass:
     def __init__(self):
     	self.x = 10
     	self.str = "HELLO!"
+    	
+class someClass: 
+    variable = "blah"
 
 #############################################################################
 # Input: input

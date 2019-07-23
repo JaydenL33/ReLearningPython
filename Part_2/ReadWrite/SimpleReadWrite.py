@@ -1,12 +1,13 @@
 #############################################################################
 # Author: Jayden Lee (Jayden.Lee@student.uts.edu.au)
-# Date: DATE
-# Purpose: FILL ME ...  PLEASE! 
+# Date: 12/07/19
+# Purpose: To understand Read Write in Python and I guess a little bit
+# more bash. 
 #############################################################################
 
 #############################################################################
 
-import somecode
+import os
 
 #############################################################################
 
@@ -14,21 +15,27 @@ import somecode
 # 							Function and Class Def.
 #############################################################################
 
-class someClass: 
-    def __init__(self):
-    	self.x = 10
-    	self.str = "HELLO!"
-
 #############################################################################
-# Input: input
-# This function DOES
-# Output: input
+# Input: NULL
+# This function returns CWD.
+# Output: getcwd
 #############################################################################
 
-def aFunFuction(input):
-	extra = input + 1
-	return input, extra
+def myFileStructure():
+	CWD = "/mnt/c/Coding/Github/ReLearningPython/Part_2/ReadWrite"
+	getcwd = os.getcwd()
+	print("The Path is " + CWD+"\n"+ "The CWD is " + getcwd)
+	print(os.listdir(CWD))
+	
+
+	
+	return CWD
+
+	
 
 #############################################################################
 # 								Main Code. 
 #############################################################################
+
+CWD = myFileStructure()
+print(CWD)
