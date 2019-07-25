@@ -2,6 +2,8 @@
 # Author: Jayden Lee (Jayden.Lee@student.uts.edu.au)
 # Date: 23/07/19
 # Purpose: Creating and reading files.
+# Source: https://docs.python.org/3/tutorial/inputoutput.html
+# to find out about double reads and the errors they cause. 
 #############################################################################
 
 #############################################################################

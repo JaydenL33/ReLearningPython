@@ -21,8 +21,6 @@ class otherClass:
     def getData(self):
         print("{0}+{1}j".format(self.x,self.x))
 
-class someClass: 
-    variable = "blah"
 
 #############################################################################
 # Input: input
