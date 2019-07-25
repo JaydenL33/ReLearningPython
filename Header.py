@@ -17,7 +17,10 @@ class otherClass:
     def __init__(self):
     	self.x = 10
     	self.str = "HELLO!"
-    	
+
+    def getData(self):
+        print("{0}+{1}j".format(self.x,self.x))
+
 class someClass: 
     variable = "blah"
 
@@ -34,3 +37,4 @@ def aFunFuction(input):
 #############################################################################
 # 								Main Code. 
 #############################################################################
+

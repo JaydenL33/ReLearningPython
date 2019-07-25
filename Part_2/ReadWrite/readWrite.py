@@ -20,14 +20,27 @@ import os
 # Output: the opened file 'textFile'
 #############################################################################
 
+
+def updateAndRead(toCheck, name, toUpdate):
+	toCheck.read()
+	# Write Data to it here #
+	toCheck.write("\n"+toUpdate)
+	toCheck.close()
+	toCheck = createFile(name, 0)
+	checking = toCheck.read()
+	print(checking)
+	toCheck.close()
+
+
+
 def createFile(name, toggle):
 	cwd = os.getcwd()
 	textfilePath = os.path.join(cwd, name+".txt")
-	print(textfilePath)
+	# print(textfilePath)
 	# Therefore can be local path and doesn't require import os. 
 	localPath = name+".txt"
 	if toggle == 0:
-		textFile = open(localPath,'r')
+		textFile = open(localPath,'r+')
 	if toggle == 1: 
 		textFile = open(localPath,'a')
 
@@ -38,8 +51,7 @@ def createFile(name, toggle):
 name = 'bill'
 
 file = createFile(name, 0)
-fileContent = file.read()
-filelines = file.readlines() 
-print(fileContent)
-print(filelines)
-file.close()
+toUpdate = input("Please input Data for the file: ")
+updateAndRead(file, name, toUpdate)
+
+

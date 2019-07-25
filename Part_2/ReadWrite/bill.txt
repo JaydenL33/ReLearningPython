@@ -1,2 +1,4 @@
-Hello Dave. 
-The Big Bang Theory.
+
+This is the read write of a text file.
+Did it change
+omfg it did!
