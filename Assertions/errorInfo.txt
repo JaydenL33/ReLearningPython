@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "exampleAssertion.py", line 36, in bacon
+    raise Expection("OMG ERROR?")
+NameError: name 'Expection' is not defined

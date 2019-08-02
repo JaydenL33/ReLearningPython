@@ -1,0 +1,74 @@
+# Understanding Classes
+
+class A:
+""" This is the parent object doc. Note, this object implicitly inherits from the Python object. It could explicity inherit from it by using class A(object)..."""
+
+id = 0    # class id variable 'shared', but used to increment each instances ID value! Good use...
+type = "my_object"  # class variable, shared 'type', much more useful
+value_dict = []  # again, not a good idea to share a list unless any instance should read/write!!
+
+def __init__(self, name):
+ self.id = A.id + 1
+ self.name = name
+
+ A.id = A.id + 1
+ print("\t", self.name, "initialised!\n")
+
+def ParentMethod(self):
+ print("The parent method")
+ print("Name: ", self.name)
+
+
+class B(A): # Derived/parent class is in brackets this time...
+""" Class B's docs: This is explicit inheritance of class B (child) of class A (parent). """
+
+def __init__(self, name):
+ # over ride the parent __init__ by simply re-defining it here
+ super().__init__(name)
+ print("Printing type: ", super().type)
+ super().ParentMethod()
+
+
+class D:
+""" Class D docstring """
+val = "HaHa"
+i = 0
+def ultimateMethod(self, i):
+ 
+ print("recusion: ", i)
+ D.i = D.i + 1
+ print(D.val)
+ print(self.name)
+ if D.i == 0:
+  D.ultimateMethod(self, D.i)
+ else:
+  while(D.i < 1000):
+   D.ultimateMethod(self, D.i)
+ 
+class C(A, D): # multiple inheritance
+""" Type C's doc """
+
+def __init__(self, name):
+ super().__init__(name)
+ print("\tObject C finalised!\n")
+ super().ParentMethod()
+ super().ultimateMethod(0)
+
+
+class E(A, B):
+""" 
+Testing circular inheritance, this will print the error: 
+
+File "objects.py", line 58, in <module>
+    class E(A, B):
+ TypeError: Cannot create a consistent method resolution
+ order (MRO) for bases A, B """
+
+def __init__(self, name):
+ super().__init__(name)
+
+
+# tst = A("object 1")
+# nxt = B("object 2")
+# nxttst = C("object 3")
+# circtst = E("object 4")
