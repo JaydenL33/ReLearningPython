@@ -9,6 +9,7 @@
 
 
 import random as r
+import time
 
 
 minRange = int(input("Please give me a minimum number: "))
@@ -40,4 +41,6 @@ def fun():
     return d 
 
 while Correct != 1:
-	Correct = Guesser(minRange, maxRange, 0)
+	Correct = Guesser(minRange, maxRange, 1)
+
+sys.wait(10)
