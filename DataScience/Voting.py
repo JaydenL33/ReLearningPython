@@ -15,34 +15,28 @@ import csv
 #############################################################################
 # 							Function and Class Def.
 #############################################################################
-class otherClass:
-    def __init__(self):
-    	self.x = 10
-    	self.str = "HELLO!"
-
-    def getData(self):
-        print("{0}+{1}j".format(self.x,self.x))
-
 
 #############################################################################
 # Input: Tables(The List of Tables), 
 # n (Being the of tables gone through already)
 # This function DOES
-# Output: input
+# Output: NULL
 #############################################################################
 
-def CSVLoad(tables, n):
-	with open(name + ".csv", 'r') as Voting:
+def CSVLoad(tables, name, n):
+	with open(name[n] + ".csv", 'r') as Voting:
 		read_data = csv.reader(Voting)
 
 	for i in range(read_data):
 		tables[i[n]] = int(read_data[i+1[2]])
-	return tables
 
 #############################################################################
-# Input: input
-# This function DOES
-# Output: input
+# Input: Tables(The extracted value as whether or not it was 1 or 0 for each
+# outputted result from Knime.
+# finalTable (The final table to write too.)
+# This function returns a list of weather a majority of the results were 1 
+# or 0.
+# Output: NULL
 #############################################################################
 
 def Voting(tables, finalTable):
@@ -52,7 +46,8 @@ def Voting(tables, finalTable):
 			entrySum += tables[i[l]]
 		if entrySum >= 3:
 			finalTable[i] = 1
-	return finalTable
+		else: 
+			finalTable[i] = 0
 
 
 
@@ -63,3 +58,10 @@ def Voting(tables, finalTable):
 
 finalTable = []
 tables = []
+names = []
+
+for i in range(5):
+	name = input("What is the name of the CSV?")
+	CSVLoad(tables, name, i)
+
+Voting(tables, finalTable)
