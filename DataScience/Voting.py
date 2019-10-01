@@ -3,7 +3,8 @@
 # Date: 1/10/2019
 # Purpose: In order to vote on the predicited values, I've used a vote. 
 # Meaning that if the the values occur more then 3 times, then it will be the
-# final voted value.
+# final voted value. For 31250 Introduction into Data Analytics.
+
 #############################################################################
 
 #############################################################################
@@ -39,12 +40,12 @@ def CSVLoad(tables, name, n):
 # Output: NULL
 #############################################################################
 
-def Voting(tables, finalTable):
+def Voting(tables, finalTable, Outputs):
 
 	for i in range(tables):
 		for l in range(tables[i]):
 			entrySum += tables[i[l]]
-		if entrySum >= 3:
+		if entrySum >= NumOfOutput/2:
 			finalTable[i] = 1
 		else: 
 			finalTable[i] = 0
@@ -60,8 +61,10 @@ finalTable = []
 tables = []
 names = []
 
-for i in range(5):
+NumOfOutput = 5
+
+for i in range(NumOfOutput):
 	name = input("What is the name of the CSV?")
 	CSVLoad(tables, name, i)
 
-Voting(tables, finalTable)
+Voting(tables, finalTable, NumOfOutput)
