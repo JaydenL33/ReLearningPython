@@ -30,6 +30,8 @@ def CSVLoad(tables, name, n):
 
 	for i in range(read_data):
 		tables[i[n]] = int(read_data[i+1[2]])
+	Voting.close()
+
 
 #############################################################################
 # Input: Tables(The extracted value as whether or not it was 1 or 0 for each
@@ -58,6 +60,13 @@ def Voting(tables, finalTable, Outputs):
 #############################################################################
 
 finalTable = []
+Confidence = []
+
+""" Confidence could be also loaded in and it could be used as a weight in
+our prediction.
+"""
+
+
 tables = []
 names = []
 
@@ -68,3 +77,4 @@ for i in range(NumOfOutput):
 	CSVLoad(tables, name, i)
 
 Voting(tables, finalTable, NumOfOutput)
+
