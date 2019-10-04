@@ -38,8 +38,9 @@ import csv
 #############################################################################
 
 def CSVLoad(tables, name, n):
-	with open(name[n] + ".csv", 'r') as Voting:
+	with open(name[n] + '.csv', mode='r') as Voting:
 		read_data = csv.reader(Voting)
+		print(read_data)
 
 	for i in range(read_data):
 		tables[i[n]] = int(read_data[i+2[1]])
@@ -56,16 +57,13 @@ def CSVLoad(tables, name, n):
 
 def Voting(tables, finalTable, Outputs):
 
-	for i in range(tables):
-		for l in range(tables[i]):
+	for i in range(len(tables)):
+		for l in range(len(tables[i])):
 			entrySum += tables[i[l]]
 		if entrySum >= NumOfOutput/2:
 			finalTable[i] = 1
 		else: 
 			finalTable[i] = 0
-
-
-
 
 #############################################################################
 # 								Main Code. 
@@ -74,11 +72,17 @@ def Voting(tables, finalTable, Outputs):
 finalTable = []
 tables = []
 names = []
+name = []
 
 NumOfOutput = 5
 
+i = 0
 for i in range(NumOfOutput):
-	name = input("What is the name of the CSV?")
+	
+	input_Name = str(input("What is the name of the CSV? "))
+	name.append(input_Name)
+	# print(str(name[i]))
+	
 	CSVLoad(tables, name, i)
 
 Voting(tables, finalTable, NumOfOutput)
