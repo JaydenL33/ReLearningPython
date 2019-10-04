@@ -39,12 +39,14 @@ import csv
 
 def CSVLoad(tables, name, n):
 	with open(name[n] + '.csv', mode='r') as Voting:
-		read_data = csv.reader(Voting)
-		print(read_data)
+		read_data = csv.reader(Voting, delimiter=' ', quotechar='|')
+		read_data = list(read_data)
+		#print(read_data)
+		#print(len(read_data))
 
-	for i in range(read_data):
-		tables[i[n]] = int(read_data[i+2[1]])
-		tables[i[n+1]] = int(read_data[i+1[2]])
+	for i in (len(read_data)-1):
+		tables[i+1[n]] = read_data[i+1[0]]
+		tables[i+1[n+1]] = read_data[i+1[1]]
 
 #############################################################################
 # Input: Tables(The extracted value as whether or not it was 1 or 0 for each
@@ -71,6 +73,8 @@ def Voting(tables, finalTable, Outputs):
 
 finalTable = []
 tables = []
+tables[0[0]] = "Quote_ID"
+tables[0[1]] = "QuoteConversion_Flag"
 names = []
 name = []
 
@@ -85,4 +89,4 @@ for i in range(NumOfOutput):
 	
 	CSVLoad(tables, name, i)
 
-Voting(tables, finalTable, NumOfOutput)
+#Voting(tables, finalTable, NumOfOutput)
