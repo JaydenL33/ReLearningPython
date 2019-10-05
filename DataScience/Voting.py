@@ -38,15 +38,19 @@ import csv
 #############################################################################
 
 def CSVLoad(tables, name, n):
-	with open(name[n] + '.csv', mode='r') as Voting:
+	with open("Outputs/"+ name + '.csv', mode='r') as Voting:
 		read_data = csv.reader(Voting, delimiter=' ', quotechar='|')
 		read_data = list(read_data)
 		#print(read_data)
-		#print(len(read_data))
+		print(len(read_data))
 
-	for i in (len(read_data)-1):
-		tables[i+1[n]] = read_data[i+1[0]]
-		tables[i+1[n+1]] = read_data[i+1[1]]
+	for i in range(len(read_data)):
+		split = read_data[i+1][0].split(",")
+		if n == 1:
+			tables[i+1].append(split[0])
+
+		tables[i+1].append(split[1])
+		#print(read_data[i+1])
 
 #############################################################################
 # Input: Tables(The extracted value as whether or not it was 1 or 0 for each
@@ -73,18 +77,17 @@ def Voting(tables, finalTable, Outputs):
 
 finalTable = []
 tables = []
-tables[0[0]] = "Quote_ID"
-tables[0[1]] = "QuoteConversion_Flag"
 names = []
 name = []
 
-NumOfOutput = 5
+NumOfOutput = 1
 
-i = 0
+i = 1
 for i in range(NumOfOutput):
-	
-	input_Name = str(input("What is the name of the CSV? "))
-	name.append(input_Name)
+	i = 1
+	# just a fyi that the str type cast on here is irrelevent.
+	name = "Output" + str(i)
+	print(name)
 	# print(str(name[i]))
 	
 	CSVLoad(tables, name, i)
