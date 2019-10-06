@@ -10,7 +10,7 @@
 
 from sklearn import svm
 import numpy as np
-
+import pandas as pd
 
 #############################################################################
 # Input: input
@@ -29,10 +29,8 @@ def SVRegression(data):
 	clf.predict([[1, 1]])
 	array([1.5])
 
-def npLoad(filename):
-	f = open(filename + ".csv")
-	f.readline()  # skip the header
-	data = np.loadtxt(f)
+def pandasLoad(filename):
+	data = pd.read_csv(filename + '.csv', sep=',',header=None)
 	return data
 
 #############################################################################
@@ -41,8 +39,8 @@ def npLoad(filename):
 
 filename = "LearningSetSVM"
 
-data = npLoad(filename)
+data = pandasLoad(filename)
 
 print(data)
 
-#SVRegression(data) = data
+SVRegression(data)
