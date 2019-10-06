@@ -21,9 +21,9 @@ import numpy as np
 # Output: input
 #############################################################################
 
-def SVRegression():
-	X = [[0, 0], [2, 2]]
-	y = [0.5, 2.5]
+def SVRegression(data):
+	X = data
+	y = data[:,0]
 	clf = svm.SVR()
 	clf.fit(X, y) 
 	SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, epsilon=0.1,
@@ -32,8 +32,8 @@ def SVRegression():
 	clf.predict([[1, 1]])
 	array([1.5])
 
-def npLoad():
-	f = open("filename.txt")
+def npLoad(filename):
+	f = open(filename + ".csv")
 	f.readline()  # skip the header
 	data = np.loadtxt(f)
 	return data
