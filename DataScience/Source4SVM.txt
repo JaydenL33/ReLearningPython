@@ -1,0 +1,5 @@
+# Source: 
+# https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python
+# https://www.youtube.com/watch?v=1NxnPkZM9bc
+# https://scikit-learn.org/stable/modules/svm.html
+# https://stackoverflow.com/questions/11023411/how-to-import-csv-data-file-into-scikit-learn

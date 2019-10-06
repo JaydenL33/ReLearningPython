@@ -3,10 +3,7 @@
 # Date: 6/10/19
 # Purpose: To use a SVM for our regression problem. 
 # Source: 
-# https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python
-# https://www.youtube.com/watch?v=1NxnPkZM9bc
-# https://scikit-learn.org/stable/modules/svm.html
-# https://stackoverflow.com/questions/11023411/how-to-import-csv-data-file-into-scikit-learn
+# In Source Documentation
 #############################################################################
 
 #############################################################################
@@ -22,7 +19,7 @@ import numpy as np
 #############################################################################
 
 def SVRegression(data):
-	X = data
+	X = data[:,1:]
 	y = data[:,0]
 	clf = svm.SVR()
 	clf.fit(X, y) 
@@ -42,3 +39,10 @@ def npLoad(filename):
 # 								Main Code. 
 #############################################################################
 
+filename = "LearningSetSVM"
+
+data = npLoad(filename)
+
+print(data)
+
+#SVRegression(data) = data
