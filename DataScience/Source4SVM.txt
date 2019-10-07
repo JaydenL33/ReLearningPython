@@ -4,3 +4,5 @@
 # https://scikit-learn.org/stable/modules/svm.html
 # https://stackoverflow.com/questions/11023411/how-to-import-csv-data-file-into-scikit-learn
 # https://stackoverflow.com/questions/46556795/fitting-sklearns-svm-classifier-with-data-from-a-pandas-dataframe
+# https://stackabuse.com/implementing-svm-and-kernel-svm-with-pythons-scikit-learn/
+# https://stackoverflow.com/questions/44931834/pandas-drop-function-error-label-not-contained-in-axis?noredirect=1&lq=1
