@@ -27,7 +27,7 @@ def SVMRegression(X, y):
 	#print(X_train)
 	#print(y_train)
 	start_time = time.time()
-	svclassifier = svm.SVC(kernel='linear', degree=3, gamma='scale', max_iter = 200000)
+	svclassifier = svm.SVC(kernel='rbf', degree=3, gamma='scale', max_iter = -1)
 	print("Fitting the data.")
 	print("##################################################")
 	svclassifier.fit(X_train, y_train) 
@@ -42,7 +42,7 @@ def SVMRegression(X, y):
 	print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
 	print("Precision:",metrics.precision_score(y_test, y_pred))
 	print("Recall:",metrics.recall_score(y_test, y_pred))
-	dmp = pickle.dump(svclassifier, open('kernel_Linear_iter_10000.sav','wb'))
+	dmp = pickle.dump(svclassifier, open('SVMrbf.sav','wb'))
 	np.savetxt("predicitons.csv", y_pred, delimiter=",")
 
 def pandasLoad(filename):
