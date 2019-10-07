@@ -23,13 +23,15 @@ from sklearn import metrics
 def SVMRegression(X, y):
 
 	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,random_state=109)
-
-	#print(y)
-	clf = svm.SVC(kernel='linear')
+	print(X_train)
+	print(y_train)
+	svclassifier = svm.SVC(gamma='scale')
 	print("Fitting Data")
-	clf.fit(X_train, y_train) 
+	
+	svclassifier.fit(X_train, y_train) 
 	print("Fitment Complete, Moving onto the Prediciton.")
-	y_pred = clf.predict(X_Test)
+	y_pred = svclassifier.predict(X_Test)
+
 	print(y_pred)
 	print("##################################################")
 	print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
@@ -39,9 +41,7 @@ def SVMRegression(X, y):
 
 def pandasLoad(filename):
 	data = pd.read_csv(filename + '.csv', sep=',', low_memory=False)
-	X = data.drop(["QuoteConversion_Flag"],axis=1)
-	X = data.drop(["Quote_ID"],axis=1)
-	X = data.drop(["Original_Quote_Date"],axis=1)
+	X = data.drop(["QuoteConversion_Flag", "Quote_ID", "Original_Quote_Date"],axis=1)
 	y = data['QuoteConversion_Flag']
 	return X, y
 
