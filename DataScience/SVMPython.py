@@ -26,24 +26,22 @@ def SVMRegression(X, y):
 
 	#print(y)
 	clf = svm.SVC(kernel='linear')
+	print("Fitting Data.")
 	clf.fit(X_train, y_train) 
 	print("Fitment Complete, Moving onto the Prediciton.")
-	#SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, epsilon=0.1,
-	#    gamma='auto_deprecated', kernel='rbf', max_iter=-1, shrinking=True,
-	#    tol=0.001, verbose=False)
+	SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, epsilon=0.1,
+	    gamma='auto_deprecated', kernel='rbf', max_iter=-1, shrinking=True,
+	    tol=0.001, verbose=False)
 	y_pred = clf.predict(X_Test)
+	print(y_pred)
+	print("##################################################")
 	print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
 	print("Precision:",metrics.precision_score(y_test, y_pred))
 	print("Recall:",metrics.recall_score(y_test, y_pred))
-	y_pred = pd.DataFrame(y_pred)
-	y_pred.to_csv(r,"y_prediction.csv")
 
-
-	
 
 def pandasLoad(filename):
 	data = pd.read_csv(filename + '.csv', sep=',', low_memory=False)
-	print(data)
 	X = data.drop(["QuoteConversion_Flag"],axis=1)
 	y = data['QuoteConversion_Flag']
 	return X, y
