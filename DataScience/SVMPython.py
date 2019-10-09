@@ -27,7 +27,7 @@ def SVMRegression(X, y):
 	#print(X_train)
 	#print(y_train)
 	start_time = time.time()
-	svclassifier = svm.SVC(kernel='linear', degree=4, gamma='auto_deprecated', max_iter = -1, tol=0.001)
+	svclassifier = svm.SVC(kernel='rbf', degree=4, gamma='auto', max_iter = 1000, tol=0.001)
 
 	print("Fitting the data.")
 	print("##################################################")
@@ -49,12 +49,12 @@ def SVMRegression(X, y):
 	print("F Score:",metrics.f1_score(y_test, y_pred))
 
 
-	dmp = pickle.dump(svclassifier, open('Outputs/LinearPrediction.sav','wb'))
-	np.savetxt("LinearPrediction.csv", y_pred, delimiter=",")
+	dmp = pickle.dump(svclassifier, open('Outputs/NormalisedPolyPrediction.sav','wb'))
+	np.savetxt("NormalisedPolyPrediction.csv", y_pred, delimiter=",")
 
 def pandasLoad(filename):
 	data = pd.read_csv("Inputs/"+filename + '.csv', sep=',', low_memory=False)
-	X = data.drop(["QuoteConversion_Flag", "Quote_ID", "Original_Quote_Date"],axis=1)
+	X = data.drop(["QuoteConversion_Flag", "Original_Quote_Date"],axis=1)
 	y = data['QuoteConversion_Flag']
 	return X, y
 
@@ -62,7 +62,7 @@ def pandasLoad(filename):
 # 								Main Code. 
 #############################################################################
 
-filename = "LearningSetSVM"
+filename = "SMOTEdProcessed"
 
 X, y = pandasLoad(filename)
 
