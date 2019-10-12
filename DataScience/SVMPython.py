@@ -1,7 +1,7 @@
 #############################################################################
 # Author: Jayden Lee (Jayden.Lee@student.uts.edu.au)
 # Date: 6/10/19
-# Purpose: To use a SVM for our regression problem. 
+# Purpose: To use a SVM for our classification problem. 
 # Source: 
 # In Source Documentation
 #############################################################################
@@ -31,7 +31,7 @@ def SVMRegression(output, test):
 	#print(X_train)
 	#print(y_train)
 	start_time = time.time()
-	svclassifier = svm.SVC(kernel='linear', degree=4, gamma='auto', max_iter = 20000, tol=0.001)
+	svclassifier = svm.SVC(kernel='rbf', degree=4, gamma='auto_depreicated', max_iter = 2000, tol=0.001)
 	if test = False:
 		print("Fitting the data.")
 		print("##################################################")
@@ -66,7 +66,7 @@ def SVMRegression(output, test):
 	else:
 		print("Fitting the data.")
 		print("##################################################")
-		svclassifier.fit(X, y) 
+		svclassifier.fit(X_train, y_train) 
 		print("--- %s seconds to complete ---" % (time.time() - start_time))
 		print("Fitment Complete. Moving onto the Prediciton.")
 		print("##################################################")
@@ -75,8 +75,8 @@ def SVMRegression(output, test):
 		print("--- %s seconds to complete ---" % (time.time() - start_time))
 		file = open(output+"_score.txt", 'w')
 		file.close()
-		dmp = pickle.dump(svclassifier, open(output + '.sav','wb'))
-		np.savetxt(output + ".csv", y_pred, delimiter=",")
+		dmp = pickle.dump(svclassifier, open(output + 'Tested.sav','wb'))
+		np.savetxt(output + "Tested.csv", y_pred, delimiter=",")
 
 def pandasLoad(filename, test):
 	data = pd.read_csv("Inputs/"+ filename + '.csv', sep=',', low_memory=False)
