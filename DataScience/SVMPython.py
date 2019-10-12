@@ -31,7 +31,7 @@ def SVMRegression(output, test):
 	#print(X_train)
 	#print(y_train)
 	start_time = time.time()
-	svclassifier = svm.SVC(kernel='rbf', degree=4, gamma='scale', max_iter = 20, tol=0.001)
+	svclassifier = svm.SVC(kernel='rbf', degree=4, gamma='scale', max_iter = 200, tol=0.001)
 	if test == False:
 		print("Fitting the data.")
 		print("##################################################")
@@ -89,4 +89,4 @@ def pandasLoad(filename, test):
 #############################################################################
 
 
-SVMRegression("Outputs/rbf_scale_20", False)
+SVMRegression("Outputs/rbf_scale_200", False)
