@@ -1,0 +1,9 @@
+# Source: 
+# https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python
+# https://www.youtube.com/watch?v=1NxnPkZM9bc
+# https://scikit-learn.org/stable/modules/svm.html
+# https://stackoverflow.com/questions/11023411/how-to-import-csv-data-file-into-scikit-learn
+# https://stackoverflow.com/questions/46556795/fitting-sklearns-svm-classifier-with-data-from-a-pandas-dataframe
+# https://stackabuse.com/implementing-svm-and-kernel-svm-with-pythons-scikit-learn/
+# https://stackoverflow.com/questions/44931834/pandas-drop-function-error-label-not-contained-in-axis?noredirect=1&lq=1
+# https://mclguide.readthedocs.io/en/latest/sklearn/preprocessing.html
