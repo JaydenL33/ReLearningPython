@@ -21,13 +21,25 @@ import time
 # Output: input
 #############################################################################
 
-def SVMRegression(X, y):
+def SVMRegression(filename):
 
-	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3,random_state=109)
+	#Read in File
+	data = pd.read_csv("Inputs/"+ filename + '.csv', sep=',', low_memory=False)
+	# Drop the first 2 columns from X
+	X = data.drop(["QuoteConversion_Flag", "Quote_ID"], axis=1)
+	# Y Contains the Quote Conversion Column
+	y = data['QuoteConversion_Flag']
+
+	#print(X)
+	
+	# Pass in the features->X, Pass in the Target->Y, Takes 30% of the data for testing and the other 70% is for training, Randomly selects data"
+	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=109)
 	#print(X_train)
 	#print(y_train)
+	# Allocates the start time
 	start_time = time.time()
-	svclassifier = svm.SVC(kernel='linear', degree=4, gamma='auto_deprecated', max_iter = 100000, tol=0.001)
+
+	svclassifier = svm.SVC(kernel='linear', degree=4, gamma='auto', max_iter = 100000, tol=0.001)
 
 	print("Fitting the data.")
 	print("##################################################")
@@ -41,7 +53,6 @@ def SVMRegression(X, y):
 	print("--- %s seconds to complete ---" % (time.time() - start_time))
 	#y_pred.to_csv(y_pred,"Prediction" sep=',', low_memory=False)
 
-
 	print("##################################################")
 	print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
 	print("Precision:",metrics.precision_score(y_test, y_pred))
@@ -49,21 +60,13 @@ def SVMRegression(X, y):
 	print("F Score:",metrics.f1_score(y_test, y_pred))
 
 
-	dmp = pickle.dump(svclassifier, open('Outputs/LinearPrediction.sav','wb'))
-	np.savetxt("LinearPrediction.csv", y_pred, delimiter=",")
-
-def pandasLoad(filename):
-	data = pd.read_csv("Inputs/"+filename + '.csv', sep=',', low_memory=False)
-	X = data.drop(["QuoteConversion_Flag", "Quote_ID"],axis=1)
-	y = data['QuoteConversion_Flag']
-	return X, y
+	dmp = pickle.dump(svclassifier, open("Outputs/" + filename + '.sav','wb'))
+	np.savetxt("Outputs/" + filename + ".csv", y_pred, delimiter=",")
 
 #############################################################################
 # 								Main Code. 
 #############################################################################
 
-filename = "Ryan"
+filename = "Ryan2"
 
-X, y = pandasLoad(filename)
-
-SVMRegression(X, y)
+SVMRegression(filename)
